@@ -1,0 +1,41 @@
+body{
+    
+    margin: auto;
+    background-color: #ff0000;
+    
+    
+}
+
+
+.container{
+    background-color:#00ff99;
+    width: 100%;
+    
+    
+}
+#gameName{
+    background-color: brown;
+    width: 40%;
+   
+}
+
+#instruction{
+    background-color: blue;
+    width: 60%;
+
+}
+
+#gameStart{
+    width: 50%;
+    background-color: yellow;
+    
+}
+
+#total{
+    background-color: aquamarine;
+    
+}
+#results{
+    background-color: aquamarine;
+    height: 90px;
+}
