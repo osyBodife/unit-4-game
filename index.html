@@ -12,7 +12,14 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="assets/javascript/games.js"> </script>  
+
+
+        </head>
+    
+<body >
+               
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -28,7 +35,7 @@
 
 
                                  <div class="row">
-                                        <div id="gameStart"><h2>Match Number appearing here</h2></div>
+                                        <div id="gameStart"></div> 
                                         <div id="winLossSheet">
                                             <p id="wins">Wins:</p>
                                             <p id="losses">Losses:</p>
@@ -38,10 +45,10 @@
                                                      </div>
 
                <div class="row"> 
-                   <div class="col-sm-2" id="crystal_1">First Crystal</div>
-                   <div class="col-sm-2" id="crystal_2">second Crystal</div>
-                   <div class="col-sm-2" id="crystal_3">third Crystal</div>
-                   <div class="col-sm-2" id="crystal_4">fouth Crystal</div>
+                   <div class="col-sm-2" id="crystal_1"><button type="button" onclick="firstCrytsal()">Button 1 </button></div>
+                   <div class="col-sm-2" id="crystal_2"><button type="button" onclick="secondCrytsal()">Button 2 </button></div>
+                   <div class="col-sm-2" id="crystal_3"><button type="button" onclick="thirdtsal()">Button 3 </button></div>
+                   <div class="col-sm-2" id="crystal_4"><button type="button" onclick="fourthCrytsal()">Button 4 </button></div>
 
 
                </div>   
@@ -74,10 +81,90 @@
 
         
          </div>
-      
+         <script>
+
+             
+var randNumber;
+var result;
+var crystalOne=0;
+var crystalTwo=0;
+var crystalThree=0;
+var crystalFour=0;
+var win=0;
+var loss=0;
+var numArray=[];
+var addedNumbers;
+var sum=0;
+
+ //function randNumberGenerator(){
+     //at game start both wins & loss==0
+     //generate random between 19 to 120
+     if (win==0 && loss==0){
+         var txt;
+
+         randNumber=Math.floor(Math.random() * 102) + 19; 
+         //console.log(randNumber);   
+    //randNumberGenerator(); 
+    txt= "  " + " " + randNumber;
+    document.getElementById("gameStart").innerHTML=txt;    
+    
+    //txt="Your Guesses So Far :" + yourGuessSoFar;
+    //document.getElementById("yourGuesses").innerHTML = txt;
+
+
+     }else{
+        console.log("Something bad will happen here.");
+     }
+   // }
+/*
+var numbers = [15, 20, 11, 4];
+
+function getSum(total,x) {
+  return total + Math.round(x);
+}
+function myFunction(item) {
+  document.getElementById("demo").innerHTML = numbers.reduce(getSum, 0);
+}
+
+
+*/
+   function firstCrytsal() {
+    //generate random number btw 1 to 12
+    //store it var crystalOne
+    var i=0;
+    
+    crystalOne=Math.floor(Math.random()*12) +1;  
+    //add the value to the empty array
+    numArray.push(crystalOne); 
+    //for(i=0; i<numArray.length; i++) {
+
+    //}
+
+    document.getElementById("results").innerHTML = numArray;   
+
+}
+
+function secondCrytsal() {
+    //generate random number btw 1 to 12
+    //store it var crystalOne
+    //crystalOne=Math.floor(Math.random() * 102) + 19;
+    crystalTwo=Math.floor(Math.random()*12) +1;  
+    //return crystalOne   
+    document.getElementById("results").innerHTML = crystalTwo;   
+
+}
+function addNumbers(){
+firstCrytsal();
+secondCrytsal()
+//addedNumbers= crystalOne+crystalTwo + crystalThree + crystalFour;
+//document.getElementById("results").innerHTML = addedNumbers; 
+
+
+
+}
+
+
+        </script>
         
-        <script src="assets/javascript/games.js"> </script>  
-        
-     
     </body>
 </html>

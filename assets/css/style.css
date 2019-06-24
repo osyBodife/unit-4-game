@@ -28,6 +28,8 @@ body{
 #gameStart{
     width: 50%;
     background-color: yellow;
+    font-size: 50px;
+   padding: 20px;
     
 }
 
