@@ -15,7 +15,7 @@ body{
 }
 #gameName{
     background-color: #ff6600;
-    width: 40%;
+    
     padding: 20px;
    
 }
@@ -26,7 +26,7 @@ width: 20%;
 }
 #instruction{
     background-color: #ccffcc;
-    width: 60%;
+    
     padding: 20px;
 
 }
