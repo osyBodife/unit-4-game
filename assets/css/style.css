@@ -36,12 +36,14 @@ body{
 }
 
 #total{
-    background-color: aquamarine;
+    background-color: lightgray;
     
 }
 #results{
-    background-color: aquamarine;
+    background-color: lightgray;
     height: 90px;
+    font-size: 30px;
+   padding: 20px;
 }
 
 #img_04{

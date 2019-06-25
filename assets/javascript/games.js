@@ -10,23 +10,17 @@ var x;
 var txt;
 var val;
 
- function randNumberGenerator(){
-     //at game start both wins & loss==0
-     //generate random between 19 to 120
-     if (win==0 && loss==0){       
+function randNumberGenerator(){
+    //at game start 
+    //on page load generate a random number
+    //generate random between 19 to 120    
 
-        randNumber=Math.floor(Math.random() * 102) + 19; 
-        return randNumber; 
-        //console.log(randNumber);   
-   //randNumberGenerator(); 
-   //txt= "  " + " " + randNumber;
-  // document.getElementById("gameStart").innerHTML= randNumber; 
-  
-     }   
-     
-    }
-    document.getElementById("gameStart").innerHTML="Target Score :" + randNumberGenerator(); 
-  //create function to check or loss
+       randNumber=Math.floor(Math.random() * 102) + 19; 
+        //display result on the index page
+       document.getElementById("gameStart").innerHTML= randNumber;     
+    
+   }
+   
 
   function getSum(total, x){
 
@@ -52,12 +46,13 @@ function firstCrytsal() {
     */   
      getSum(total, x);
      sum=numArray.reduce(getSum, 0); 
-     
+     window.value=numArray.reduce(getSum, 0); 
     document.getElementById("results").innerHTML = sum; 
+    
       
 
 }
-// document.getElementById("results").innerHTML = numArray.reduce(getSum, 0); 
+//document.getElementById("results").innerHTML = numArray.reduce(getSum, 0); 
  
 
 //secondCrsytal function
@@ -118,18 +113,59 @@ function fourthCrytsal() {
 }
 
 
-console.log(randNumber);
+//console.log(randNumber);
 //firstCrytsal();
 
  //console.log("This sum :"+ window.value);
+ 
 
- function checkWinLoss(){   
-    var val = document.getElementById("results").value;
     
-       document.getElementById("wins").innerHTML = val;
-       //console.log(val); 
-   
+ 
+//firstCrsytal function
+function selectCrytsal() {
+    //we want to generate random
+    
+    crystalValu=Math.floor(Math.random()*12) +1;  
+    //add the value to the empty array
+    numArray.push(crystalValu); 
+    //sum the numbers in array
+     getSum(total, x);
+     sum=numArray.reduce(getSum, 0); 
+     console.log(randNumber);
+     //show on the page
+     document.getElementById("results").innerHTML = sum; 
+    if(sum > randNumber){
+        //alert("it is a loss");
+        loss++
+       var txtt="Losses :" + loss;    
+        document.getElementById("losses").innerHTML =txtt; 
+        numArray=[];
+        randNumberGenerator();
+        document.getElementById("gameStart").innerHTML= randNumber; 
+    }
+    if(sum == randNumber){
+        //alert ("It is a win");
+        win++;
+        
+       var txts="Wins :" + loss;    
+        document.getElementById("win").innerHTML =txts; 
+        numArray=[];
+        randNumberGenerator();
+        document.getElementById("gameStart").innerHTML= randNumber; 
+    }
+    
+    
       
- }
- //checkWinLoss();
- //console.log(val); 
+
+}
+//document.getElementById("results").innerHTML = numArray.reduce(getSum, 0); 
+   
+
+
+
+
+      
+ 
+//checkWinLoss();
+//console.log(randNumber);
+ 
