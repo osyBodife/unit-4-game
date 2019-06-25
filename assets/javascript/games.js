@@ -11,161 +11,82 @@ var txt;
 var val;
 
 function randNumberGenerator(){
-    //at game start 
-    //on page load generate a random number
+    //this function on page load would generate a random number
     //generate random between 19 to 120    
 
        randNumber=Math.floor(Math.random() * 102) + 19; 
+       txt= "Target Number : => " + randNumber;
         //display result on the index page
-       document.getElementById("gameStart").innerHTML= randNumber;     
+       document.getElementById("gameStart").innerHTML= txt;     
     
    }
    
-
+//function to add numbers in array
   function getSum(total, x){
 
     return total + Math.round(x);
      
-} 
+      } 
   
-//firstCrsytal function
-function firstCrytsal() {
-    //generate random number btw 1 to 12
-    //store it var crystalValu
-    
-    
-    crystalValu=Math.floor(Math.random()*12) +1;  
-    //add the value to the empty array
-    numArray.push(crystalValu); 
-    console.log(numArray);
-    /*
-    function getSum(total, x){
-
-        return total + Math.round(x);
-    } 
-    */   
-     getSum(total, x);
-     sum=numArray.reduce(getSum, 0); 
-     window.value=numArray.reduce(getSum, 0); 
-    document.getElementById("results").innerHTML = sum; 
-    
-      
-
-}
-//document.getElementById("results").innerHTML = numArray.reduce(getSum, 0); 
  
-
-//secondCrsytal function
-function secondCrytsal() {
-    //generate random number btw 1 to 12
-    //store it var crystalValu
+ function checkLoss(){
+     //this function would check if there is a Loss
+    if(sum > randNumber){
+        //alert("it is a loss");
+        loss++
+       var txtt="Losses :" + loss;   
+       //display result 
+        document.getElementById("losses").innerHTML =txtt; 
+        //empty the array or reset
+        numArray=[];
+        //call random generator to start afresh
+        randNumberGenerator();
+        //display random number
+        document.getElementById("gameStart").innerHTML= txt;
+    }
+      }
     
-    
-    crystalValu=Math.floor(Math.random()*12) +1;  
-    //add the value to the empty array
-    numArray.push(crystalValu); 
-    console.log(numArray);
-    function getSum(total, x){
-
-        return total + Math.round(x);
-    }    
-    sum=numArray.reduce(getSum, 0);  
-    document.getElementById("results").innerHTML = sum; 
-}
-
-
-//thirdCrsytal function
-function thirdCrytsal() {
-    //generate random number btw 1 to 12
-    //store it var crystalOne
-    var i=0;
-    
-    crystalValu=Math.floor(Math.random()*12) +1;  
-    //add the value to the empty array
-    numArray.push(crystalValu); 
-    console.log(numArray);
-    function getSum(total, x){
-
-        return total + Math.round(x);
-    }    
-    sum=numArray.reduce(getSum, 0);  
-    document.getElementById("results").innerHTML = sum; 
-}
-
-
-//fourthCrsytal function
-function fourthCrytsal() {
-    //generate random number btw 1 to 12
-    //store it var crystalOne
-    var i=0;
-    
-    crystalValu=Math.floor(Math.random()*12) +1;  
-    //add the value to the empty array
-    numArray.push(crystalValu); 
-    console.log(numArray);
-    function getSum(total, x){
-
-        return total + Math.round(x);
-    }    
-    sum=numArray.reduce(getSum, 0);  
-    document.getElementById("results").innerHTML = sum; 
-    
-}
-
-
-//console.log(randNumber);
-//firstCrytsal();
-
- //console.log("This sum :"+ window.value);
- 
-
-    
- 
+      function checkWin (){
+          //this function would check a win
+          if(sum == randNumber){
+                //alert("it is a win");
+                //increment win by 1
+                win++;
+               var txts="Wins :" + win;  
+               //display result  
+                document.getElementById("wins").innerHTML =txts; 
+                //reset that array to empty to start afresh
+                numArray=[];
+                //call random number function to  start afresh
+                randNumberGenerator();
+                //display result
+                document.getElementById("gameStart").innerHTML= txt;
+           
+        }
+    }
 //firstCrsytal function
 function selectCrytsal() {
-    //we want to generate random
-    
+    //this function on the click of the crystals would generate a random number
+    //this math function would generate a random number btw 1 and 12
+
     crystalValu=Math.floor(Math.random()*12) +1;  
     //add the value to the empty array
     numArray.push(crystalValu); 
     //sum the numbers in array
      getSum(total, x);
      sum=numArray.reduce(getSum, 0); 
-     console.log(randNumber);
-     //show on the page
+     //console.log(randNumber);
+     //display result
      document.getElementById("results").innerHTML = sum; 
-    if(sum > randNumber){
-        //alert("it is a loss");
-        loss++
-       var txtt="Losses :" + loss;    
-        document.getElementById("losses").innerHTML =txtt; 
-        numArray=[];
-        randNumberGenerator();
-        document.getElementById("gameStart").innerHTML= randNumber; 
-    }
-    if(sum == randNumber){
-        //alert ("It is a win");
-        win++;
-        
-       var txts="Wins :" + loss;    
-        document.getElementById("win").innerHTML =txts; 
-        numArray=[];
-        randNumberGenerator();
-        document.getElementById("gameStart").innerHTML= randNumber; 
-    }
+     //call the the loss and win functions
+     checkLoss();
+     checkWin ();  
     
-    
-      
+    //end
 
 }
-//document.getElementById("results").innerHTML = numArray.reduce(getSum, 0); 
-   
 
 
 
 
-      
- 
-//checkWinLoss();
-//console.log(randNumber);
- 
+
